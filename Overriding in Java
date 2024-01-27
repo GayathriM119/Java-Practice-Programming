@@ -1,0 +1,104 @@
+package Overriding;
+
+import java.util.Scanner;
+
+abstract class Shape{
+	
+	abstract double area();
+	abstract double perimeter();
+	Shape(){
+		
+	}
+}
+class Square extends Shape{
+	double side;
+	@Override
+	public double area() {
+		return side*side;
+	}
+	@Override
+	public double perimeter() {
+		return 4*side;
+	}
+	Square(double s){
+		super();
+		this.side=s;
+	}
+}
+class Rectangle extends Shape{
+	double length,breadth;
+	@Override
+	public double area() {
+		return length*breadth;
+	}
+	@Override
+	public double perimeter() {
+		return length+breadth;
+	}
+	Rectangle(double l,double b){
+		super();
+		this.length=l;
+		this.breadth=b;
+	}
+}
+class Circle extends Shape{
+	double radius;
+	@Override
+	public double area() {
+		return Math.PI*Math.pow(radius, 2);
+	}
+	@Override
+	public double perimeter() {
+		return 2*Math.PI*radius;
+	}
+	Circle(double r){
+		super();
+		this.radius=r;
+	}
+}
+public class Main {
+	public static void main(String[] args) {
+		int ch;
+		double a,l,b;
+		double r;
+		Scanner sc=new Scanner(System.in);
+		
+		do
+		{
+			System.out.println("Enter the choice.\n1. To find the area and perimeter of a Square.\n2. To find the area and perimeter of a Rectangle.\n3. To find the area and perimeter of a circle.\n4.To break");
+			ch=sc.nextInt();
+			switch(ch) {
+			case 1:
+			{
+				System.out.println("Enter the side of the Square\n");
+				a=sc.nextDouble();
+				Shape sq=new Square(a);
+				System.out.println("The perimeter of the Square is: "+sq.perimeter());
+				System.out.println("The area of the Square is: "+sq.area());
+			}
+			break;
+			case 2:
+			{
+				System.out.println("Enter the length and breadth of the Rectangle\n");
+				l=sc.nextDouble();
+				b=sc.nextDouble();
+				Shape rec=new Rectangle(l,b);
+				System.out.println("The perimeter of the Rectangle is: "+rec.perimeter());
+				System.out.println("The area of the Rectangle is: "+rec.area());
+			}
+			break;
+			case 3:
+			{
+				System.out.println("Enter the radius of the Circle\n");
+				r=sc.nextDouble();
+				Shape circle=new Circle(r);
+				System.out.println("The perimeter of the Circle is: "+circle.perimeter());
+				System.out.println("The area of the Circle is: "+circle.area());
+			}
+			break;
+			}
+		}while(ch<=3);
+		System.out.println("*****Thank You!!!*****");
+	}
+	
+}
