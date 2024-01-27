@@ -1,0 +1,65 @@
+package Overloading;
+
+import java.util.Scanner;
+
+class Operations{
+	public int area(int a) {
+		return a*a*a;
+	}
+	public int area(int l,int b) {
+		return l*b;
+	}
+	public double area(double r) {
+		return(Math.PI*Math.pow(r, 2));
+	}
+	public int perimeter(int a) {
+		return 4*a;
+	}
+	public int perimeter(int l,int b) {
+		return l+b;
+	}
+	public double perimeter(double r) {
+		return 2*Math.PI*r;
+	}
+}
+public class Main {
+	public static void main(String[] args) {
+		int ch,a,l,b;
+		double r;
+		Scanner sc=new Scanner(System.in);
+		Operations op=new Operations();
+		do
+		{
+			System.out.println("Enter the choice.\n1. To find the area and perimeter of a Square.\n2. To find the area and perimeter of a Rectangle.\n3. To find the area and perimeter of a circle.\n4.To break");
+			ch=sc.nextInt();
+			switch(ch) {
+			case 1:
+			{
+				System.out.println("Enter the side of the Square\n");
+				a=sc.nextInt();
+				System.out.println("The perimeter of the Square is: "+op.perimeter(a));
+				System.out.println("The area of the Square is: "+op.area(a));
+			}
+			break;
+			case 2:
+			{
+				System.out.println("Enter the length and breadth of the Rectangle\n");
+				l=sc.nextInt();
+				b=sc.nextInt();
+				System.out.println("The perimeter of the Rectangle is: "+op.perimeter(l,b));
+				System.out.println("The area of the Rectangle is: "+op.area(l,b));
+			}
+			break;
+			case 3:
+			{
+				System.out.println("Enter the radius of the Circle\n");
+				r=sc.nextDouble();
+				System.out.println("The perimeter of the Circle is: "+op.perimeter(r));
+				System.out.println("The area of the Circle is: "+op.area(r));
+			}
+			break;
+			}
+		}while(ch<=3);
+		System.out.println("*****Thank You!!!*****");
+	}
+}
